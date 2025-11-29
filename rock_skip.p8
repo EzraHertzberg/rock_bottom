@@ -14,7 +14,7 @@ random_g = {10, 10, 10, 10, 10}
 
 
 --credit for shop
-xp = 30000
+xp = 0
 
 super_begining = true
 
