@@ -14,7 +14,7 @@ random_g = {10, 10, 10, 10, 10}
 
 
 --credit for shop
-xp = 0
+xp = 30000
 
 super_begining = true
 
@@ -148,7 +148,7 @@ your rock band has failed.
 you have reached rock bottom.
 
 you have always wanted to skip
-a rock across the great 32,767
+a rock across the great 10,000
 meter lake.
 
 maybe if you do life will
@@ -265,7 +265,7 @@ else
 		end
 end
 
-if rock.x >= 32767 then
+if rock.x >= 10000 then
 win()
 end
 end
@@ -505,13 +505,13 @@ function win()
 cls(0)
 print([[wow you really did it.
 congradulations gwimbly you got
-the rock across the 32,767
+the rock across the 10,000
 meter lake!
 
-and so gwimbly skipped the rock
-across the lake
+that is truly an incredible
+stunt
 
-later your became world 
+later you became world 
 famous for your rock skipping 
 abilities
 
