@@ -29,7 +29,7 @@ shop_set = false
 goods = {
 {false, 1200, "a true \ntestament of \nrock skipping \nmastery, learn \nto skip rocks \noff of birds"},
 {false, 300, "an impressive \nskill, learn to\nskip rocks \noff of \nballoons"},
-{false, 20000, "an awe \ninspiring\nability, learn \nto skip rocks \noff of clouds"}}
+{false, 7700, "an awe \ninspiring\nability, learn \nto skip rocks \noff of clouds"}}
 
 --another nutty global variable
 hovered_t = 1
@@ -148,7 +148,7 @@ your rock band has failed.
 you have reached rock bottom.
 
 you have always wanted to skip
-a rock across the great 100,000
+a rock across the great 32,767
 meter lake.
 
 maybe if you do life will
@@ -265,7 +265,7 @@ else
 		end
 end
 
-if rock.x >= 100000 then
+if rock.x >= 32767 then
 win()
 end
 end
@@ -331,7 +331,11 @@ function lose()
 	print("your rock sank, press z\nto restart")
 	print("you made it " .. flr(rock.x).." feet\nand earned "..flr(rock.x)\5  .." xp")
 	if not collected_xp then
+	if xp + flr(rock.x)\5 <= 32767 then
 	xp = xp + flr(rock.x)\5 
+	else
+	xp = 32767
+	end
 	collected_xp = true
 	end
 end
@@ -445,7 +449,7 @@ function set_obs()
 		flr(rnd(90)),
 	 7, 4, {7, 8}, 2, goods[1][1])
 	 random_ts[1] = 0
-	 random_g[1] = 30 + flr(rnd(20))
+	 random_g[1] = 30 + flr(rnd(50))
 	end
 
 	
@@ -454,7 +458,7 @@ function set_obs()
 		add_obs( rock.x + 128, 118,
 	 5, 5, 5, 2, goods[1][1])
 	 random_ts[2] = 0
-	 random_g[2] = 30 + flr(rnd(20))
+	 random_g[2] = 30 + flr(rnd(50))
 	end
 
 	if random_ts[3] ==
@@ -464,7 +468,7 @@ function set_obs()
 	 28, 12, 128, 3, goods[3][1],
 	  3, 2)
 	 random_ts[3] = 0
-	 random_g[3] = 30 + flr(rnd(20))
+	 random_g[3] = 30 + flr(rnd(50))
 	end
 
 	if random_ts[4] ==
@@ -474,17 +478,16 @@ function set_obs()
 	 5, 8, 72, 3, goods[2][1],
 	  1, 2)
 	 random_ts[4] = 0
-	 random_g[4] = 30 + flr(rnd(20))
+	 random_g[4] = 30 + flr(rnd(50))
 	end
 	if random_ts[5] ==
 	random_g[5] then
 		add_obs(rock.x + 128,30+
 		flr(rnd(50)),
 	 5, 8, 73, 3, goods[2][1],
-	  1, 2,
-	 goods[2][1] )
+	  1, 2)
 	 random_ts[5] = 0
-	 random_g[5] = 30 + flr(rnd(20))
+	 random_g[5] = 30 + flr(rnd(50))
 	end	
 
 end
@@ -502,7 +505,7 @@ function win()
 cls(0)
 print([[wow you really did it.
 congradulations gwimbly you got
-the rock across the 100,000
+the rock across the 32,767
 meter lake!
 
 and so gwimbly skipped the rock
@@ -516,6 +519,7 @@ you become governor of
 california
 
 nice!]])
+
 end
 
 __gfx__
